@@ -5,19 +5,22 @@ import EditIcon from '@mui/icons-material/Edit';
 import "../../assets/styles/components/todo/todo.css";
 
 export default function Todo(props) {
-    const { todoTitle, todoDate, todoStatus } = props;
+    const { todoTitle, todoDate, todoStatus, id } = props;
     const [newTodoStatus, setNewTodoStatus] = useState(todoStatus);
     const [todoComplete, setTodoComplete] = useState(false);
+
     function checkboxChange(e) {
         if (e.target.checked) {
             setTodoComplete(true);
+            setNewTodoStatus('completed');
         } else {
             setTodoComplete(false);
+            setNewTodoStatus('incomplete');
         }
     }
 
     return (
-        <div className="todo-container">
+        <div className="todo-container" id={id}>
             <div className="todo-info-container">
                 <Checkbox onChange={checkboxChange} />
                 <div className="todo-info">

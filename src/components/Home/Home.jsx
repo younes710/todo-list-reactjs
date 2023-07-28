@@ -8,6 +8,7 @@ import "../../assets/styles/components/home/home.css";
 export default function Home() {
     const [openModal, setOpenModal] = useState(false);
     const [todos, setTodos] = useState([]);
+    const [todoStatusFilter, setTodoStatusFilter] = useState('all');
 
     function closeModal() {
         setOpenModal(false);
@@ -18,7 +19,7 @@ export default function Home() {
     }
 
     function getTodoStatus(status) {
-        console.log(status);
+        setTodoStatusFilter(status);
     }
 
     return (
@@ -30,7 +31,7 @@ export default function Home() {
                 }}>Add Task</Button>
                 <Select todoStatus={getTodoStatus} />
             </div>
-            <TodoList todos={todos} />
+            <TodoList todos={todos} todoStatusFilter={todoStatusFilter} />
             <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} />
         </div>
     )
