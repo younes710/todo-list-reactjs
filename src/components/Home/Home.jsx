@@ -1,3 +1,4 @@
+import TodoList from "../TodoList/TodoList";
 import Select from "../Select/Select";
 import Button from "@mui/material/Button";
 import "../../assets/styles/components/home/home.css";
@@ -14,6 +15,7 @@ export default function Home() {
                 <Button variant="contained">Add Task</Button>
                 <Select todoStatus={getTodoStatus} />
             </div>
+            <TodoList />
         </div>
     )
 }
