@@ -18,7 +18,7 @@ export default function Modal(props) {
             newDate.getFullYear() + " " +
             ("00" + newDate.getHours()).slice(-2) + ":" +
             ("00" + newDate.getMinutes()).slice(-2) + ":" +
-            ("00" + newDate.getSeconds()).slice(-2);
+            ("00" + newDate.getSeconds()).slice(-2)
         if (todoTitle) {
             addTodo(todoTitle, todoStatus, dateFormat);
             setTodoTitle('');
@@ -41,7 +41,8 @@ export default function Modal(props) {
                         <label className='form-label'>Title</label>
                         <input type="text" className='todo-title-input' ref={todoTitleVal} onChange={() => {
                             setTodoTitle(todoTitleVal.current.value);
-                        }} />
+                        }} required
+                        />
                     </div>
                     <div className='todo-status'>
                         <label className='form-label'>Status</label>
@@ -53,7 +54,7 @@ export default function Modal(props) {
                         </select>
                     </div>
                     <div>
-                        <Button variant="contained" onClick={addNewTodo}>Add Task</Button>
+                        <Button variant="contained" onClick={addNewTodo} type='submit'>Add Task</Button>
                         <Button variant="text" sx={{ backgroundColor: '#cccdde', color: '#646681', marginInlineStart: '0.5rem', width: '6rem' }} onClick={closeModal}>Cancel</Button>
                     </div>
                 </form>

@@ -8,9 +8,9 @@ export default function Select(props) {
 
     return (
         <select onChange={optionChange} className="select-box">
-            <option value="all" className="select-option">All</option>
-            <option value="incomplete" className="select-option">Incomplete</option>
-            <option value="completed" className="select-option">Completed</option>
+            <option value="all">All</option>
+            <option value="incomplete">Incomplete</option>
+            <option value="completed">Completed</option>
         </select>
     )
 }

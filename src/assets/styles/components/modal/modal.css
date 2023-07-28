@@ -19,6 +19,12 @@
     padding-top: 0.2rem;
 }
 
+.close-button:is(:hover, :focus) {
+    background-color: #e32525;
+    color: #fff;
+    transition: all 0.35s ease;
+}
+
 .modal-form {
     background-color: #ecedf6;
     padding: 1rem;

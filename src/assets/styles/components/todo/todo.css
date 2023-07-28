@@ -24,6 +24,11 @@
     gap: 0.3rem;
 }
 
+.todo-checked {
+    text-decoration: line-through;
+    color: #585858;
+}
+
 .date-text {
     font-size: 0.8rem;
     color: #585858;
