@@ -1,0 +1,72 @@
+.modal {
+    width: 30rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.close-container {
+    display: flex;
+    justify-content: end;
+}
+
+.close-button {
+    border-radius: 5px;
+    border: none;
+    padding-top: 0.2rem;
+}
+
+.modal-form {
+    background-color: #ecedf6;
+    padding: 1rem;
+    margin-block-start: 1rem;
+    border-radius: 5px;
+}
+
+.todo-title,
+.todo-status {
+    display: flex;
+    flex-direction: column;
+    margin-block-end: 1rem;
+}
+
+.todo-title-input,
+.todo-status-select {
+    border: none;
+    outline: none;
+    min-height: 3rem;
+    font-size: 1.1rem;
+    padding-inline: 0.3rem;
+}
+
+.modal-form-title {
+    color: #646681;
+    margin-block-end: 2rem;
+}
+
+.form-label {
+    margin-block-end: 0.7rem;
+    font-size: 1.2rem;
+    color: #646681;
+}
+
+.todo-status {
+    margin-block-end: 3rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+.d-none {
+    display: none;
+}

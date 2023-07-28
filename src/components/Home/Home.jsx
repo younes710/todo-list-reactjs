@@ -1,4 +1,5 @@
 import TodoList from "../TodoList/TodoList";
+import Modal from "../Modal/Modal";
 import Select from "../Select/Select";
 import Button from "@mui/material/Button";
 import "../../assets/styles/components/home/home.css";
@@ -16,6 +17,7 @@ export default function Home() {
                 <Select todoStatus={getTodoStatus} />
             </div>
             <TodoList />
+            <Modal />
         </div>
     )
 }

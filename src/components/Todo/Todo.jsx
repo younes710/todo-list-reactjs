@@ -11,8 +11,8 @@ export default function Todo(props) {
             <div className="todo-info-container">
                 <Checkbox />
                 <div className="todo-info">
-                    <span>{todoTitle}dfds</span>
-                    <span className="date-text">{todoDate}dfas</span>
+                    <span>{todoTitle}</span>
+                    <span className="date-text">{todoDate}</span>
                 </div>
             </div>
             <div className="todo-icon-container">

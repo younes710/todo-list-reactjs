@@ -1,3 +1,4 @@
+import Todo from "../Todo/Todo";
 import "../../assets/styles/components/todoList/todoList.css";
 
 export default function TodoList() {
@@ -6,6 +7,7 @@ export default function TodoList() {
             <div className="no-todos">
                 <span>No Todos</span>
             </div>
+            {/* <Todo todoTitle={''} todoDate={''} /> */}
         </div>
     )
 }
