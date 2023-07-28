@@ -1,4 +1,14 @@
-.header-text {
+.todos-container {
+    width: 45rem;
+    margin-inline: auto;
+}
+
+.page-name {
     color: #646681;
     text-align: center;
+}
+
+.todo-list-actions {
+    display: flex;
+    justify-content: space-between;
 }
