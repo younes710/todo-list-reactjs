@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import "../../assets/styles/components/todo/todo.css";
 
 export default function Todo(props) {
-    const { todoTitle, todoDate } = props;
+    const { todoTitle, todoDate, todoStatus } = props;
 
     return (
         <div className="todo-container">

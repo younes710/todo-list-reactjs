@@ -21,6 +21,9 @@ export default function Modal(props) {
             ("00" + newDate.getSeconds()).slice(-2);
         if (todoTitle) {
             addTodo(todoTitle, todoStatus, dateFormat);
+            setTodoTitle('');
+            todoTitleVal.current.value = ''
+            closeModal();
         }
     }
 

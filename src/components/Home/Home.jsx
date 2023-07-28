@@ -15,7 +15,6 @@ export default function Home() {
 
     function newTodo(todoTitle, todoStatus, date) {
         setTodos([...todos, { todoTitle: todoTitle, todoStatus: todoStatus, date: date }]);
-        console.log(todos)
     }
 
     function getTodoStatus(status) {
@@ -31,7 +30,7 @@ export default function Home() {
                 }}>Add Task</Button>
                 <Select todoStatus={getTodoStatus} />
             </div>
-            <TodoList />
+            <TodoList todos={todos} />
             <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} />
         </div>
     )
