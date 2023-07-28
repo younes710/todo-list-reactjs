@@ -1,18 +1,26 @@
 .todos {
+    position: relative;
     background-color: #ecedf6;
-    min-height: 5rem;
-    display: flex;
-    align-items: center;
+    min-height: 4rem;
     margin-block-start: 1rem;
     border-radius: 10px;
+    padding: 1rem;
 }
 
 .no-todos {
     width: 5rem;
-    margin-inline: auto;
+    margin: auto;
     background-color: #dedfe1;
     color: #585858;
     padding: 0.5rem 1rem;
     text-align: center;
     border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.d-none {
+    display: none;
 }

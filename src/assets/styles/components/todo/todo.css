@@ -1,0 +1,46 @@
+.todo-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    padding-block: 1rem;
+    border-radius: 10px;
+}
+
+.todo-container:last-child {
+    margin-bottom: 0;
+}
+
+.todo-info-container {
+    display: flex;
+    margin-inline-start: 0.5rem;
+}
+
+.todo-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.date-text {
+    font-size: 0.8rem;
+    color: #585858;
+}
+
+.todo-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-inline-end: 1rem;
+}
+
+.todo-icon {
+    border: none;
+    border-radius: 5px;
+    background-color: #dedfe1;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+}
