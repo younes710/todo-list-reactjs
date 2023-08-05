@@ -32,6 +32,12 @@ export default function Home() {
         }
     }
 
+    function removeTodo(id) {
+        setTodos(todos.filter(todo => todo.id !== Number(id)));
+        console.log(todos);
+        console.log(id)
+    }
+
     return (
         <div className="todos-container">
             <h1 className="page-name">TODO LIST</h1>
@@ -41,7 +47,7 @@ export default function Home() {
                 }}>Add Task</Button>
                 <Select todoStatus={getTodoStatus} />
             </div>
-            <TodoList todos={todos} todoStatusChange={getTodoStatusChanged} todoStatusFilter={todoStatusFilter} />
+            <TodoList todos={todos} todoStatusChange={getTodoStatusChanged} todoStatusFilter={todoStatusFilter} removeTodo={removeTodo} />
             <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} />
         </div>
     )

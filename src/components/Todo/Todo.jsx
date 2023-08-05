@@ -5,7 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import "../../assets/styles/components/todo/todo.css";
 
 export default function Todo(props) {
-    const { todoTitle, todoDate, todoStatus, id, statusChange } = props;
+    const { todoTitle, todoDate, todoStatus, id, statusChange, removeTodoId } = props;
     const [newTodoStatus, setNewTodoStatus] = useState(todoStatus);
     const [removeTodo, setRemoveTodo] = useState(false);
 
@@ -19,11 +19,12 @@ export default function Todo(props) {
     }
 
     function removeTodoClick(e) {
-        setRemoveTodo(true);
+        // setRemoveTodo(true);
+        removeTodoId(e.target.closest('.todo-container').id);
     }
 
     return (
-        <div className={`todo-container ${removeTodo ? 'd-none' : ''}`} id={id}>
+        <div className={`todo-container`} id={id}>
             <div className="todo-info-container">
                 <Checkbox onChange={checkboxChange} checked={newTodoStatus === 'completed' ? true : false} />
                 <div className="todo-info">
