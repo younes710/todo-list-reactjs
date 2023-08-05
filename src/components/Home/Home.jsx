@@ -15,11 +15,21 @@ export default function Home() {
     }
 
     function newTodo(todoTitle, todoStatus, date) {
-        setTodos([...todos, { todoTitle: todoTitle, todoStatus: todoStatus, date: date }]);
+        setTodos([...todos, { todoTitle: todoTitle, todoStatus: todoStatus, date: date, id: Date.now() }]);
     }
 
     function getTodoStatus(status) {
         setTodoStatusFilter(status);
+    }
+
+    function getTodoStatusChanged(id) {
+        console.log(todos.filter(todo => todo.id === Number(id)));
+        const todoCheck = todos.filter(todo => todo.id === Number(id));
+        if (todoCheck[0].todoStatus === 'incomplete') {
+            todoCheck[0].todoStatus = 'completed';
+        } else {
+            todoCheck[0].todoStatus = 'incomplete';
+        }
     }
 
     return (
@@ -31,7 +41,7 @@ export default function Home() {
                 }}>Add Task</Button>
                 <Select todoStatus={getTodoStatus} />
             </div>
-            <TodoList todos={todos} todoStatusFilter={todoStatusFilter} />
+            <TodoList todos={todos} todoStatusChange={getTodoStatusChanged} todoStatusFilter={todoStatusFilter} />
             <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} />
         </div>
     )

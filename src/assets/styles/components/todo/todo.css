@@ -42,6 +42,7 @@
 }
 
 .todo-icon {
+    cursor: pointer;
     border: none;
     border-radius: 5px;
     background-color: #dedfe1;

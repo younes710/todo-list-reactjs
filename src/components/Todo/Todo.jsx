@@ -5,32 +5,35 @@ import EditIcon from '@mui/icons-material/Edit';
 import "../../assets/styles/components/todo/todo.css";
 
 export default function Todo(props) {
-    const { todoTitle, todoDate, todoStatus, id } = props;
+    const { todoTitle, todoDate, todoStatus, id, statusChange } = props;
     const [newTodoStatus, setNewTodoStatus] = useState(todoStatus);
-    const [todoComplete, setTodoComplete] = useState(false);
+    const [removeTodo, setRemoveTodo] = useState(false);
 
     function checkboxChange(e) {
+        statusChange(e.target.closest('.todo-container').id);
         if (e.target.checked) {
-            setTodoComplete(true);
             setNewTodoStatus('completed');
         } else {
-            setTodoComplete(false);
             setNewTodoStatus('incomplete');
         }
     }
 
+    function removeTodoClick(e) {
+        setRemoveTodo(true);
+    }
+
     return (
-        <div className="todo-container" id={id}>
+        <div className={`todo-container ${removeTodo ? 'd-none' : ''}`} id={id}>
             <div className="todo-info-container">
-                <Checkbox onChange={checkboxChange} />
+                <Checkbox onChange={checkboxChange} checked={newTodoStatus === 'completed' ? true : false} />
                 <div className="todo-info">
-                    <span className={`${todoComplete ? 'todo-checked' : ''}`}>{todoTitle}</span>
+                    <span className={`${newTodoStatus === 'completed' ? 'todo-checked' : ''}`}>{todoTitle}</span>
                     <span className="date-text">{todoDate}</span>
                 </div>
             </div>
             <div className="todo-icon-container">
                 <div>
-                    <button className="todo-icon">
+                    <button className="todo-icon" onClick={removeTodoClick}>
                         <DeleteIcon sx={{ color: '#585858' }} fontSize="small" />
                     </button>
                 </div>
