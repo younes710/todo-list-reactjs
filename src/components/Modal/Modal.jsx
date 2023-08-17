@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import "../../assets/styles/components/modal/modal.css";
 
 export default function Modal(props) {
-    const { openModal, closeModal, addTodo } = props;
+    const { openModal, closeModal, addTodo, editTodoModal } = props;
     const [todoTitle, setTodoTitle] = useState('');
     const [todoStatus, setTodoStatus] = useState('incomplete');
     const todoTitleVal = useRef();

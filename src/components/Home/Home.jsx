@@ -9,6 +9,7 @@ export default function Home() {
     const [openModal, setOpenModal] = useState(false);
     const [todos, setTodos] = useState([]);
     const [todoStatusFilter, setTodoStatusFilter] = useState('all');
+    const [editTodoDetail, setEditTodoDetail] = useState('');
 
     function closeModal() {
         setOpenModal(false);
@@ -34,8 +35,10 @@ export default function Home() {
 
     function removeTodo(id) {
         setTodos(todos.filter(todo => todo.id !== Number(id)));
-        console.log(todos);
-        console.log(id)
+    }
+
+    function editTodo(id) {
+        setEditTodoDetail(...todos.filter(todo => todo.id === Number(id)));
     }
 
     return (
@@ -47,8 +50,8 @@ export default function Home() {
                 }}>Add Task</Button>
                 <Select todoStatus={getTodoStatus} />
             </div>
-            <TodoList todos={todos} todoStatusChange={getTodoStatusChanged} todoStatusFilter={todoStatusFilter} removeTodo={removeTodo} />
-            <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} />
+            <TodoList todos={todos} todoStatusChange={getTodoStatusChanged} todoStatusFilter={todoStatusFilter} removeTodo={removeTodo} editTodo={editTodo} />
+            <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} editTodoModal={editTodoDetail} />
         </div>
     )
 }

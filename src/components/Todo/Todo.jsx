@@ -5,9 +5,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import "../../assets/styles/components/todo/todo.css";
 
 export default function Todo(props) {
-    const { todoTitle, todoDate, todoStatus, id, statusChange, removeTodoId } = props;
+    const { todoTitle, todoDate, todoStatus, id, statusChange, removeTodoId, editTodoId } = props;
     const [newTodoStatus, setNewTodoStatus] = useState(todoStatus);
-    const [removeTodo, setRemoveTodo] = useState(false);
 
     function checkboxChange(e) {
         statusChange(e.target.closest('.todo-container').id);
@@ -19,8 +18,11 @@ export default function Todo(props) {
     }
 
     function removeTodoClick(e) {
-        // setRemoveTodo(true);
         removeTodoId(e.target.closest('.todo-container').id);
+    }
+
+    function editTodo(e) {
+        editTodoId(e.target.closest('.todo-container').id);
     }
 
     return (
@@ -39,7 +41,7 @@ export default function Todo(props) {
                     </button>
                 </div>
                 <div>
-                    <button className="todo-icon">
+                    <button className="todo-icon" onClick={editTodo}>
                         <EditIcon sx={{ color: '#585858' }} fontSize="small" />
                     </button>
                 </div>
