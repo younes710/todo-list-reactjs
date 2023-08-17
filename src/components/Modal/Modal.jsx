@@ -1,14 +1,17 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { useState, useRef } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '@mui/material';
+import { editContext } from '../Home/Home';
 import "../../assets/styles/components/modal/modal.css";
 
 export default function Modal(props) {
-    const { openModal, closeModal, addTodo, editTodoModal } = props;
+    const { openModal, closeModal, addTodo } = props;
     const [todoTitle, setTodoTitle] = useState('');
     const [todoStatus, setTodoStatus] = useState('incomplete');
     const todoTitleVal = useRef();
+    const editTodoContext = useContext(editContext);
+    console.log(editTodoContext);
 
     function addNewTodo() {
         const newDate = new Date();

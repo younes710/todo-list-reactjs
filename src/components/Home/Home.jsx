@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import TodoList from "../TodoList/TodoList";
 import Modal from "../Modal/Modal";
 import Select from "../Select/Select";
 import Button from "@mui/material/Button";
 import "../../assets/styles/components/home/home.css";
+export const editContext = createContext();
 
 export default function Home() {
     const [openModal, setOpenModal] = useState(false);
@@ -39,6 +40,7 @@ export default function Home() {
 
     function editTodo(id) {
         setEditTodoDetail(...todos.filter(todo => todo.id === Number(id)));
+        setOpenModal(true);
     }
 
     return (
@@ -51,7 +53,9 @@ export default function Home() {
                 <Select todoStatus={getTodoStatus} />
             </div>
             <TodoList todos={todos} todoStatusChange={getTodoStatusChanged} todoStatusFilter={todoStatusFilter} removeTodo={removeTodo} editTodo={editTodo} />
-            <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} editTodoModal={editTodoDetail} />
+            <editContext.Provider value={editTodoDetail}>
+                <Modal openModal={openModal} closeModal={closeModal} addTodo={newTodo} />
+            </editContext.Provider>
         </div>
     )
 }
